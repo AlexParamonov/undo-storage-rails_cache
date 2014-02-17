@@ -58,7 +58,7 @@ See [build history](http://travis-ci.org/#!/AlexParamonov/undo-storage-rails_cac
 
 ## Contributing
 
-1. Fork repository ( http://github.com/AlexParamonov/undo-storage-rails\_cache/fork )
+1. Fork repository ( http://github.com/AlexParamonov/undo-storage-rails_cache/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
