@@ -21,15 +21,15 @@ describe Undo::Storage::RailsCache do
 
   describe "options" do
     let(:adapter) { described_class.new cache, options }
-    let(:options) { Hash.new }
+    let(:options) { { :additional => :option } }
 
     it "sends provided options to cache.read" do
-      expect(cache).to receive(:read).with any_args, options
+      expect(cache).to receive(:read).with anything, options
       adapter.fetch "foo"
     end
 
     it "sends provided options to cache.write" do
-      expect(cache).to receive(:write).with any_args, options
+      expect(cache).to receive(:write).with anything, anything, options
       adapter.put "foo", "bar"
     end
 
