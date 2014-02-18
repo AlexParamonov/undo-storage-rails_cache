@@ -32,5 +32,10 @@ describe Undo::Storage::RailsCache do
       expect(cache).to receive(:write).with any_args, options
       adapter.put "foo", "bar"
     end
+
+    before do
+      # JSON.load behaves differently in 1.9
+      allow(cache).to receive(:read).with(any_args) { { :foo => :bar }.to_json }
+    end if RUBY_VERSION < "2.0"
   end
 end
