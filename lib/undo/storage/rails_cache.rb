@@ -7,19 +7,19 @@ module Undo
       def initialize(cache = nil, options = {})
         @cache = cache
         @cache ||= Rails.cache if defined? Rails
-        @options = options
+        @default_options = options
       end
 
-      def put(uuid, object)
-        cache.write uuid, serialize(object), options
+      def store(uuid, object, options = {})
+        cache.write uuid, serialize(object), default_options.merge(options)
       end
 
-      def fetch(uuid)
-        deserialize cache.read uuid, options
+      def fetch(uuid, options = {})
+        deserialize cache.read uuid, default_options.merge(options)
       end
 
       private
-      attr_reader :cache, :options
+      attr_reader :cache, :default_options
 
       def serialize(object)
         object.to_json
