@@ -57,6 +57,7 @@ As any Undo storage it gets argument bypassed from #store, #restore and #wrap:
 Requirements
 ------------
 1. Ruby 1.9 or above
+1. [The Undo](https://github.com/AlexParamonov/undo).
 
 Contacts
 --------
