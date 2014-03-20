@@ -18,6 +18,10 @@ module Undo
         deserialize cache.read uuid, default_options.merge(options)
       end
 
+      def delete(uuid, options = {})
+        cache.delete uuid, default_options.merge(options)
+      end
+
       private
       attr_reader :cache, :default_options
 

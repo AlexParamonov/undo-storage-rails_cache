@@ -56,6 +56,7 @@ describe Undo::Storage::RailsCache do
       expect do
         subject.store 123, object, options
         subject.fetch 123, options
+        subject.delete 123, options
       end.not_to raise_error
     end
   end

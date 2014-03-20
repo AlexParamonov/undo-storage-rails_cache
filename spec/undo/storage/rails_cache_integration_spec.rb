@@ -2,8 +2,14 @@ require "spec_helper_rails"
 
 describe Undo::Storage::RailsCache do
   it "stores and fetches object" do
-    subject.store "123", "hello" => "world"
-    expect(subject.fetch "123").to eq "hello" => "world"
+    subject.store 123, "hello" => "world"
+    expect(subject.fetch 123).to eq "hello" => "world"
+  end
+
+  it "deletes stored data" do
+    subject.store 123, "hello" => "world"
+    subject.delete 123
+    expect(subject.fetch 123).to be_nil
   end
 
   it "uses Rails.cache by default" do
