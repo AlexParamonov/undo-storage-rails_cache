@@ -3,7 +3,6 @@ require 'json'
 module Undo
   module Storage
     class RailsCache
-      VERSION = "0.0.1"
 
       def initialize(cache = nil, options = {})
         @cache = cache
