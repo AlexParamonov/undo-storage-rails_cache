@@ -59,5 +59,12 @@ describe Undo::Storage::RailsCache do
         subject.delete 123, options
       end.not_to raise_error
     end
+
+    it "has higher priority than default options" do
+      subject = described_class.new cache, expires_in: 10
+
+      expect(cache).to receive(:write).with anything, anything, expires_in: 1
+      subject.store 123, object, expires_in: 1
+    end
   end
 end
