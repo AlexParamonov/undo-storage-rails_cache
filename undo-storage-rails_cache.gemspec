@@ -20,7 +20,7 @@ be used with any similarly quaking storage.
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "undo", "~> 1.0.0.beta1"
+  spec.add_dependency "undo", "~> 1.0.0.beta3"
   spec.add_development_dependency "bundler", "~> 1.0"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec", ">= 3.0.0.beta1"
