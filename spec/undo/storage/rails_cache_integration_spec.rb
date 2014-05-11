@@ -9,7 +9,7 @@ describe Undo::Storage::RailsCache do
   it "deletes stored data" do
     subject.store 123, "hello" => "world"
     subject.delete 123
-    expect(subject.fetch 123).to be_nil
+    expect { subject.fetch 123 }.to raise_error(KeyError)
   end
 
   it "uses Rails.cache by default" do

@@ -17,6 +17,7 @@ module Undo
       end
 
       def fetch(uuid, options = {})
+        raise KeyError, "key #{uuid} not found" unless cache.exist? uuid
         unpack cache.read uuid, adapter_options(options)
       end
 

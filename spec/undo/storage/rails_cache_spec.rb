@@ -3,17 +3,17 @@ require 'undo/storage/rails_cache'
 
 describe Undo::Storage::RailsCache do
   subject { described_class.new cache }
-  let(:cache) { double :cache }
-
-  it "does not raise when created without arguments" do
-    expect { described_class.new }.not_to raise_error
-  end
+  let(:cache) { double :cache, exist?: true }
 
   it "uses provided cache storage" do
     subject = described_class.new cache
 
     expect(cache).to receive :write
     subject.store "foo", "bar"
+  end
+
+  it "does not raise when created without arguments" do
+    expect { described_class.new }.not_to raise_error
   end
 
   describe "default options" do
