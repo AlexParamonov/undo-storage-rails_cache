@@ -16,16 +16,6 @@ describe Undo::Storage::RailsCache do
     subject.store "foo", "bar"
   end
 
-  it "writes hash as json" do
-    expect(cache).to receive(:write).with("123", '{"hello":"world"}', anything)
-    subject.store "123", "hello" => "world"
-  end
-
-  it "returns hash" do
-    expect(cache).to receive(:read).with("123", anything) { '{"hello":"world"}' }
-    expect(subject.fetch "123").to eq "hello" => "world"
-  end
-
   describe "default options" do
     subject { described_class.new cache, options }
     let(:options) { { additional: :option } }
